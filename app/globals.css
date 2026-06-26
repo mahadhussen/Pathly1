@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Theming. Two layers make Pathly feel personal:
+   1. A light/dark surface palette, toggled with [data-mode] on the wrapper.
+   2. A per-person --accent colour chosen at onboarding (set inline in React).
+   Components read these via Tailwind's `surface`, `ink`, `accent`… tokens.
+--------------------------------------------------------------------------- */
+:root {
+  --accent: #0f766e;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --line: #e6e8ec;
+  --ink: #1b2330;
+  --muted: #6b7585;
+}
+
+[data-mode="dark"] {
+  --bg: #0f141b;
+  --surface: #171e27;
+  --surface-2: #1f2832;
+  --line: #2a3440;
+  --ink: #eef2f7;
+  --muted: #94a1b2;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--ink);
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(820px 420px at 88% -6%, var(--accent-soft), transparent 70%),
+    radial-gradient(620px 360px at 0% 0%, var(--accent-soft), transparent 70%);
+  background-attachment: fixed;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Soft entrance shared by cards and panels */
+.animate-in {
+  animation: floatin 0.35s ease-out both;
+}
+@keyframes floatin {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Strike-through that draws itself as a task is checked off */
+.done-line {
+  position: relative;
+}
+.done-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1.5px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(1);
+  transform-origin: left;
+  animation: strike 0.25s ease-out both;
+}
+@keyframes strike {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Thin, theme-aware scrollbars so long lists stay tidy */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
