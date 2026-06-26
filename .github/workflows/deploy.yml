@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # Deploy from the repo's default branch. GitHub's github-pages environment
+    # only allows deployments from the default branch, so this must match it.
+    branches: [claude/personal-todo-list-bw02cs]
   workflow_dispatch:
 
 # Allow the workflow to publish to GitHub Pages.
