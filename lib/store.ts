@@ -1,11 +1,11 @@
-// Persistence. Pathly keeps everything in localStorage — no account, no server,
+// Persistence. Habee keeps everything in localStorage — no account, no server,
 // nothing leaves the device. This module is the only place that touches storage,
 // so the rest of the app stays pure and the data shape lives in one spot.
 
 import type { AppState, Task, Priority } from "./types";
 import { todayISO, addDays } from "./date";
 
-const STORAGE_KEY = "pathly.v1";
+const STORAGE_KEY = "habee.v1";
 
 export function newId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -78,7 +78,7 @@ export function seedTasks(now: Date): Task[] {
   const today = todayISO(now);
   return [
     makeTask({
-      title: "Välkommen till Pathly 👋 — bocka av mig!",
+      title: "Välkommen till Habee 👋 — bocka av mig!",
       dueDate: today,
       priority: 2,
       order: 1,
@@ -86,7 +86,7 @@ export function seedTasks(now: Date): Task[] {
     makeTask({
       title: "Prova snabbtillägg: skriv t.ex. \"Ring mamma imorgon kl 18 !1\"",
       dueDate: today,
-      notes: "Pathly läser datum, tid, #projekt, @etikett och prioritet (!1–!4) direkt ur texten.",
+      notes: "Habee läser datum, tid, #projekt, @etikett och prioritet (!1–!4) direkt ur texten.",
       order: 2,
     }),
     makeTask({

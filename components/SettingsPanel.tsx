@@ -29,7 +29,7 @@ export default function SettingsPanel({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "pathly-backup.json";
+    a.download = "habee-backup.json";
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -40,7 +40,7 @@ export default function SettingsPanel({
       try {
         const parsed = JSON.parse(String(reader.result)) as AppState;
         if (parsed && Array.isArray(parsed.tasks)) onImport(parsed);
-        else alert("Filen ser inte ut som en Pathly-säkerhetskopia.");
+        else alert("Filen ser inte ut som en Habee-säkerhetskopia.");
       } catch {
         alert("Kunde inte läsa filen.");
       }
@@ -134,7 +134,7 @@ export default function SettingsPanel({
         </Section>
 
         <p className="mt-8 text-center text-xs text-muted">
-          Pathly · gratis & privat · byggd i din webbläsare
+          Habee · gratis & privat · byggd i din webbläsare
         </p>
       </div>
     </div>

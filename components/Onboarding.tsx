@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { THEMES, greeting, themeById } from "@/lib/personalize";
 
-// First run. We ask only what makes Pathly feel like yours: a name, a colour,
+// First run. We ask only what makes Habee feel like yours: a name, a colour,
 // and light/dark. Everything previews live so the choice feels real.
 export default function Onboarding({
   now,
@@ -32,8 +32,8 @@ export default function Onboarding({
             <CheckMark />
           </span>
           <div>
-            <h1 className="text-xl font-bold tracking-tight">Pathly</h1>
-            <p className="text-sm text-muted">Din egen att-göra-lista</p>
+            <h1 className="text-xl font-bold tracking-tight">Habee</h1>
+            <p className="text-sm text-muted">Ordna din dag</p>
           </div>
         </div>
 

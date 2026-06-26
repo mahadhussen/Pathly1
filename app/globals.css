@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ---------------------------------------------------------------------------
-   Theming. Two layers make Pathly feel personal:
+   Theming. Two layers make Habee feel personal:
    1. A light/dark surface palette, toggled with [data-mode] on the wrapper.
    2. A per-person --accent colour chosen at onboarding (set inline in React).
    Components read these via Tailwind's `surface`, `ink`, `accent`… tokens.

@@ -1,8 +1,8 @@
 {
-  "name": "pathly",
+  "name": "habee",
   "version": "0.1.0",
   "private": true,
-  "description": "Pathly — a personal to-do list that feels like it was made just for you. Free, private, runs entirely in your browser.",
+  "description": "Habee — a personal to-do list that feels like it was made just for you (\"habee\" means \"organise\" in Somali). Free, private, runs entirely in your browser.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

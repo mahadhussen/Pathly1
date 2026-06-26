@@ -1,5 +1,5 @@
 // Natural-language quick add — the feature that makes capture feel effortless,
-// borrowed from Todoist. You type one line and Pathly pulls out the date, time,
+// borrowed from Todoist. You type one line and Habee pulls out the date, time,
 // priority, project, tags and repeat rule, leaving a clean title behind.
 //
 //   "Ring tandläkaren imorgon kl 14 #Hälsa @viktigt !1"

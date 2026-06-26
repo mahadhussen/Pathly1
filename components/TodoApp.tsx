@@ -197,7 +197,7 @@ export default function TodoApp() {
     VIEW_TITLE[view.kind];
 
   if (!ready) {
-    return <div className="grid min-h-screen place-items-center text-muted">Laddar Pathly…</div>;
+    return <div className="grid min-h-screen place-items-center text-muted">Laddar Habee…</div>;
   }
 
   if (!state.settings.onboarded) {

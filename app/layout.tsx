@@ -8,11 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Pathly — din personliga att-göra-lista",
+  title: "Habee — din personliga att-göra-lista",
   description:
     "En att-göra-lista som känns gjord just för dig. Snabb, privat och helt gratis — allt sparas i din webbläsare, inga konton, ingen spårning.",
-  applicationName: "Pathly",
-  appleWebApp: { capable: true, title: "Pathly", statusBarStyle: "default" },
+  applicationName: "Habee",
+  appleWebApp: { capable: true, title: "Habee", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {

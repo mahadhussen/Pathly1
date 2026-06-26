@@ -1,4 +1,4 @@
-// Shared domain types for Pathly. Everything here is plain data that gets
+// Shared domain types for Habee. Everything here is plain data that gets
 // serialised straight to localStorage — no classes, no methods — so the whole
 // app state is trivially saveable, exportable and diffable.
 

@@ -9,7 +9,7 @@ import type { ParsedInput } from "@/lib/types";
 const PRIORITY_LABEL: Record<number, string> = { 1: "P1", 2: "P2", 3: "P3", 4: "" };
 
 // One box, anything you type. As you write, a row of chips shows exactly what
-// Pathly understood — so the magic never feels like a black box.
+// Habee understood — so the magic never feels like a black box.
 const QuickAdd = forwardRef<HTMLInputElement, {
   now: Date;
   onAdd: (parsed: ParsedInput) => void;

@@ -1,4 +1,4 @@
-// Date helpers. Pathly stores due dates as plain "YYYY-MM-DD" strings in the
+// Date helpers. Habee stores due dates as plain "YYYY-MM-DD" strings in the
 // user's local calendar, never as timestamps — so a task due "today" stays due
 // today regardless of timezone or DST. All functions here are pure and take an
 // explicit `now` where the current moment matters, which keeps them testable.

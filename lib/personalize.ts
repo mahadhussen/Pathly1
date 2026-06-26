@@ -1,4 +1,4 @@
-// The "personal" in Pathly. A greeting that follows the clock and uses your
+// The "personal" in Habee. A greeting that follows the clock and uses your
 // name, a palette of accent themes you pick from, and a gentle daily line. All
 // deterministic and pure so they're testable and never surprise you on reload.
 

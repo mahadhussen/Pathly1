@@ -1,4 +1,4 @@
-# Pathly — din personliga att-göra-lista
+# Habee — din personliga att-göra-lista
 
 En att-göra-lista som känns gjord **just för dig**. Du väljer namn, färg och
 utseende, och appen hälsar på dig, recolour:ar sig efter din smak och håller
@@ -6,7 +6,7 @@ ordning på allt — utan konto, utan server, utan spårning.
 
 **Gratis för alla. Ingen inloggning, inga API-nycklar, ingen molnlagring.** Allt
 körs i webbläsaren och sparas lokalt på din enhet (`localStorage`). Det gör
-Pathly till en helt statisk sida som vem som helst kan hosta gratis. Din data är
+Habee till en helt statisk sida som vem som helst kan hosta gratis. Din data är
 din — exportera den till en fil när du vill, eller importera den på en annan
 enhet.
 
@@ -17,7 +17,7 @@ enhet.
 
 ## De bästa funktionerna från de bästa apparna — samlade
 
-Pathly plockar russinen ur kakan från de mest älskade att-göra-apparna och
+Habee plockar russinen ur kakan från de mest älskade att-göra-apparna och
 väver ihop dem till en upplevelse som känns personlig:
 
 | Funktion | Inspiration |
@@ -35,7 +35,7 @@ väver ihop dem till en upplevelse som känns personlig:
 | **Personlig hälsning** som följer klockan, **eget färgtema** & **mörkt läge** | det som gör den till *din* |
 | **Lokalt först & privat** — din data lämnar aldrig enheten, export/import ingår | — |
 
-### Snabbtillägg: vad Pathly förstår
+### Snabbtillägg: vad Habee förstår
 
 Skriv på svenska eller engelska:
 
@@ -116,6 +116,6 @@ Deploys till GitHub Pages sker automatiskt från `main` via
 
 ## Integritet
 
-Pathly skickar ingenting någonstans. Det finns ingen backend och inga
+Habee skickar ingenting någonstans. Det finns ingen backend och inga
 analysverktyg. Vill du flytta din data tar du en export; vill du börja om
 rensar du allt med ett klick.

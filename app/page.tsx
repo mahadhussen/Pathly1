@@ -7,7 +7,7 @@ const TodoApp = dynamic(() => import("@/components/TodoApp"), {
   ssr: false,
   loading: () => (
     <div className="grid min-h-screen place-items-center text-muted">
-      <div className="animate-pulse text-sm">Laddar Pathly…</div>
+      <div className="animate-pulse text-sm">Laddar Habee…</div>
     </div>
   ),
 });
