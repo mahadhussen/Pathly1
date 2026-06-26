@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import type { AppState, Settings } from "@/lib/types";
 import { THEMES } from "@/lib/personalize";
+import { toMarkdown } from "@/lib/obsidian";
 
 // Settings live in a sheet you can reach anytime — change your name, recolour
 // the whole app, flip dark mode, or take your data with you. Your data is
@@ -10,19 +11,40 @@ import { THEMES } from "@/lib/personalize";
 export default function SettingsPanel({
   settings,
   state,
+  now,
   onUpdate,
   onImport,
+  onImportMarkdown,
   onReset,
   onClose,
 }: {
   settings: Settings;
   state: AppState;
+  now: Date;
   onUpdate: (patch: Partial<Settings>) => void;
   onImport: (state: AppState) => void;
+  onImportMarkdown: (text: string) => void;
   onReset: () => void;
   onClose: () => void;
 }) {
   const fileRef = useRef<HTMLInputElement>(null);
+  const mdRef = useRef<HTMLInputElement>(null);
+
+  const exportMarkdown = () => {
+    const blob = new Blob([toMarkdown(state, now)], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Habee.md";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const importMarkdown = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = () => onImportMarkdown(String(reader.result));
+    reader.readAsText(file);
+  };
 
   const exportData = () => {
     const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
@@ -120,6 +142,32 @@ export default function SettingsPanel({
               onChange={(e) => e.target.files?.[0] && importData(e.target.files[0])}
             />
           </div>
+        </Section>
+
+        <Section title="Obsidian">
+          <p className="mb-3 text-sm text-muted">
+            Gör Habee till ditt andra minne. Exportera dina uppgifter och
+            anteckningar som Markdown och lägg filen i din Obsidian-vault — den
+            funkar direkt med plugin:et <b>Tasks</b> (kryssrutor, datum,
+            prioritet, <span className="whitespace-nowrap">🔁 upprepning</span>,
+            taggar). Importera tillbaka när du redigerat i Obsidian.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <button onClick={exportMarkdown} className="rounded-xl border border-line px-4 py-2 text-sm font-medium hover:bg-surface-2">
+              ⬇️ Exportera Markdown
+            </button>
+            <button onClick={() => mdRef.current?.click()} className="rounded-xl border border-line px-4 py-2 text-sm font-medium hover:bg-surface-2">
+              ⬆️ Importera Markdown
+            </button>
+            <input
+              ref={mdRef}
+              type="file"
+              accept=".md,text/markdown,text/plain"
+              className="hidden"
+              onChange={(e) => e.target.files?.[0] && importMarkdown(e.target.files[0])}
+            />
+          </div>
+          <p className="mt-2 text-xs text-muted">Import lägger till uppgifter (skriver inte över befintliga).</p>
         </Section>
 
         <Section title="Återställ">

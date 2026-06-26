@@ -34,6 +34,7 @@ väver ihop dem till en upplevelse som känns personlig:
 | **Statistik / "karma"** — klart idag, försenat, per projekt och prioritet | Todoist |
 | **Personlig hälsning** som följer klockan, **eget färgtema** & **mörkt läge** | det som gör den till *din* |
 | **Lokalt först & privat** — din data lämnar aldrig enheten, export/import ingår | — |
+| **Obsidian-koppling** — exportera/importera dina uppgifter som Markdown (kompatibelt med Tasks-plugin) så din vault blir ditt andra minne | Obsidian |
 
 ### Snabbtillägg: vad Habee förstår
 
@@ -78,6 +79,7 @@ lib/
   filters.ts              Vyer, sortering, räknare, framsteg
   personalize.ts          Hälsning, teman, dagens rad, streaks
   store.ts                localStorage: spara/läs, standardvärden, startdata
+  obsidian.ts             Markdown-export/import för Obsidian (Tasks-format)
 test/
   *.test.ts               Enhetstester för all ren logik
 ```

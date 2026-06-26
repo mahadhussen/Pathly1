@@ -7,6 +7,7 @@ import { themeById, greeting, dailyLine } from "@/lib/personalize";
 import { viewTasks, counts, allTags, todayProgress, type View } from "@/lib/filters";
 import { nextOccurrence } from "@/lib/recurrence";
 import { todayISO } from "@/lib/date";
+import { fromMarkdown } from "@/lib/obsidian";
 
 import Onboarding from "./Onboarding";
 import Sidebar from "./Sidebar";
@@ -172,6 +173,30 @@ export default function TodoApp() {
     setSettingsOpen(false);
   };
 
+  // Import tasks from an Obsidian-style Markdown file, recreating projects by
+  // name. Imported tasks are appended (no dedupe) so nothing existing is lost.
+  const importMarkdown = (text: string) => {
+    setState((s) => {
+      const { tasks: imported } = fromMarkdown(text);
+      let projects = s.projects;
+      const resolved = imported.map(({ projectName, ...t }) => {
+        let projectId: string | null = null;
+        if (projectName) {
+          const found = projects.find((pr) => pr.name.toLowerCase() === projectName.toLowerCase());
+          if (found) projectId = found.id;
+          else {
+            const np = { id: newId(), name: projectName, color: pickColor(projects.length) };
+            projects = [...projects, np];
+            projectId = np.id;
+          }
+        }
+        return { ...t, projectId };
+      });
+      return { ...s, projects, tasks: [...resolved, ...s.tasks] };
+    });
+    setSettingsOpen(false);
+  };
+
   const resetAll = () => {
     setState(defaultState());
     setSettingsOpen(false);
@@ -321,8 +346,10 @@ export default function TodoApp() {
         <SettingsPanel
           settings={state.settings}
           state={state}
+          now={now}
           onUpdate={updateSettings}
           onImport={importState}
+          onImportMarkdown={importMarkdown}
           onReset={resetAll}
           onClose={() => setSettingsOpen(false)}
         />
